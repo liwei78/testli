@@ -1,0 +1,7 @@
+= simple_form_for @scenario, :html => { :class => 'form-horizontal' } do |f|
+  = f.input :content, as: :text, input_html: {rows: 5, class: 'input-xxlarge'}
+  = f.input :position
+  = f.association :logics, collection: Logic.all(order: 'position')
+  .form-actions
+    = f.button :submit, :class => 'btn-primary'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), scenarios_path, :class => 'btn'

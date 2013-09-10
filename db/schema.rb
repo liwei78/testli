@@ -17,6 +17,8 @@ ActiveRecord::Schema.define(:version => 20130909063051) do
     t.text     "content"
     t.integer  "position",   :default => 0
     t.integer  "state",      :default => 0
+    t.text     "input"
+    t.text     "output"
     t.datetime "created_at",                :null => false
     t.datetime "updated_at",                :null => false
   end
@@ -42,10 +44,12 @@ ActiveRecord::Schema.define(:version => 20130909063051) do
 
   create_table "scenarios", :force => true do |t|
     t.text     "content"
-    t.integer  "position",   :default => 0
-    t.integer  "imp_level",  :default => 0
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.integer  "position",              :default => 0
+    t.integer  "imp_level",             :default => 0
+    t.integer  "parent_scenario_id"
+    t.integer  "child_scenarios_count", :default => 0
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
   end
 
 end

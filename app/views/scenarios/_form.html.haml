@@ -5,3 +5,4 @@
   .form-actions
     = f.button :submit, :class => 'btn-primary'
     = link_to t('.cancel', :default => t("helpers.links.cancel")), scenarios_path, :class => 'btn'
+    = link_to t('.destroy', :default => t("helpers.links.destroy")), scenario_path(@scenario), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger pull-right' unless @scenario.new_record?

@@ -4,6 +4,8 @@ class CreateScenarios < ActiveRecord::Migration
       t.text :content
       t.integer :position, default: 0
       t.integer :imp_level, default: 0
+      t.integer :parent_scenario_id
+      t.integer :child_scenarios_count, default: 0
 
       t.timestamps
     end

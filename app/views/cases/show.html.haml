@@ -1,17 +1,22 @@
 - model_class = Case
 .page-header
-  %h1=t '.title', :default => model_class.model_name.human.titleize
+  %h1
+    It's A Test Case
+    = show_label(@case)
 
-%p
-  %strong= model_class.human_attribute_name(:content) + ':'
-  %br
+%blockquote
+  %h3 Content
   = @case.content
-%p
-  %strong= model_class.human_attribute_name(:state) + ':'
-  %br
-  = @case.state
+
+%blockquote
+  %h3 Test Input
+  = @case.input
+
+%blockquote
+  %h3 Test Output
+  = @case.output
 
 .form-actions
   = link_to t('.back_to_scenario', :default => t("helpers.links.back_to_scenario")), scenario_path(@scenario), :class => 'btn'
   = link_to t('.edit', :default => t("helpers.links.edit")), edit_scenario_case_path(@scenario, @case), :class => 'btn'
-  = link_to t('.destroy', :default => t("helpers.links.destroy")), scenario_case_path(@scenario, @case), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'
+  = link_to t('.destroy', :default => t("helpers.links.destroy")), scenario_case_path(@scenario, @case), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger pull-right'

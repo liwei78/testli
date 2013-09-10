@@ -4,4 +4,6 @@ class Scenario < ActiveRecord::Base
   has_and_belongs_to_many :cases
   validates :content, presence: true
 
+  has_many :child_scenarios, class_name: 'Scenario', foreign_key: 'parent_scenario_id'
+  belongs_to :parent_scenario, class_name: 'Scenario', counter_cache: true
 end

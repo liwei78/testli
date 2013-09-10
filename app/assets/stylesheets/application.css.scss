@@ -1,7 +1,7 @@
 // Example using 'Cerulean' bootswatch
 //
 // First import journal variables
-@import "bootswatch/Cosmo/variables";
+@import "bootswatch/simplex/variables";
 
 // Then bootstrap itself
 @import "bootstrap";
@@ -13,7 +13,8 @@ body { padding-top: 60px; }
 @import "bootstrap-responsive";
 
 // And finally bootswatch style itself
-@import "bootswatch/Cosmo/bootswatch";
+@import "bootswatch/simplex/bootswatch";
+
 
 // Whatever application styles you have go last
 @import "base";

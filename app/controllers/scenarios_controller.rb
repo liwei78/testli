@@ -15,6 +15,8 @@ class ScenariosController < ApplicationController
   def show
     @scenario = Scenario.find(params[:id])
     @cases = @scenario.cases
+    @child_scenarios = @scenario.child_scenarios
+    @parent_logics = @scenario.logics
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @scenario }

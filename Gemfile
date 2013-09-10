@@ -54,3 +54,5 @@ group :development, :test do
   gem "email_spec"
   gem 'shoulda-matchers'
 end
+
+gem 'simplecov', :require => false, :group => :test

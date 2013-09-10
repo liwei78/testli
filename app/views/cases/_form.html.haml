@@ -1,6 +1,12 @@
+%blockquote
+  = @scenario.content
+
 = simple_form_for [@scenario, @case], :html => { :class => 'form-horizontal' } do |f|
   = f.input :content, as: :text, input_html: {rows: 5, class: 'input-xxlarge'}
+  = f.input :input, as: :text, input_html: {rows: 5, class: 'input-xxlarge'}
+  = f.input :output, as: :text, input_html: {rows: 5, class: 'input-xxlarge'}
   = f.input :state, collection: SITE_SETTINGS["case_state_select"]
   .form-actions
     = f.button :submit, :class => 'btn-primary'
     = link_to t('.cancel', :default => t("helpers.links.cancel")), @scenario, :class => 'btn'
+    = link_to t('.destroy', :default => t("helpers.links.destroy")), scenario_case_path(@scenario, @case), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger pull-right' unless @case.new_record?

@@ -4,6 +4,5 @@ FactoryGirl.define do
   factory :logic do
     title "MyString"
     content "MyString"
-    position 1
   end
 end

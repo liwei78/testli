@@ -3,7 +3,8 @@ class CreateLogics < ActiveRecord::Migration
     create_table :logics do |t|
       t.string :title
       t.text :content
-      t.integer :position
+      t.integer :position, default: 0
+      t.integer :imp_level, default: 0
 
       t.timestamps
     end

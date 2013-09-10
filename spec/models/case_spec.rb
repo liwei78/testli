@@ -6,8 +6,16 @@ describe Case do
 
   describe 'create' do
     it 'with default value' do
-      test_case = Case.create
+      test_case = FactoryGirl.create(:case)
       test_case.state.should == 0
+      test_case.position.should == 0
+    end
+
+    it 'with scenarios_count +1' do
+      scenario = FactoryGirl.create(:scenario)
+      test_case = FactoryGirl.create(:case)
+      scenario.cases << test_case
+      scenario.cases.count.should == 1
     end
   end
 end

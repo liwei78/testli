@@ -2,7 +2,10 @@ class CreateCases < ActiveRecord::Migration
   def change
     create_table :cases do |t|
       t.text :content
+      t.integer :position, default: 0
       t.integer :state, default: 0
+      t.text :input
+      t.text :output
 
       t.timestamps
     end

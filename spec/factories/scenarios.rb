@@ -1,17 +1,12 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
-  sequence :content do |n|
-    "Scenario Content #{n}"
-  end
-
-  sequence :position do |n|
-    n
-  end
+  # sequence :content do |n|
+  #   "Scenario Content #{n}"
+  # end
 
   factory :scenario do
-    content
-    position
+    content 'Content'
     # cases {
     #   Array(3..10).sample.times.map do
     #     FactoryGirl.create(:case)

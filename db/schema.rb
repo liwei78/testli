@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(:version => 20130909063051) do
 
   create_table "cases", :force => true do |t|
     t.text     "content"
+    t.integer  "position",   :default => 0
     t.integer  "state",      :default => 0
     t.datetime "created_at",                :null => false
     t.datetime "updated_at",                :null => false
@@ -28,9 +29,10 @@ ActiveRecord::Schema.define(:version => 20130909063051) do
   create_table "logics", :force => true do |t|
     t.string   "title"
     t.text     "content"
-    t.integer  "position"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "position",   :default => 0
+    t.integer  "imp_level",  :default => 0
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
   create_table "logics_scenarios", :force => true do |t|
@@ -40,9 +42,10 @@ ActiveRecord::Schema.define(:version => 20130909063051) do
 
   create_table "scenarios", :force => true do |t|
     t.text     "content"
-    t.integer  "position"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "position",   :default => 0
+    t.integer  "imp_level",  :default => 0
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
 end

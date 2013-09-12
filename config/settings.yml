@@ -1,7 +1,9 @@
 settings: &settings
-  site_name: "TestLi"
+  site_title: "TestLi"
+  site_footer: "Manage Test Cases For Happiness."
   case_state_select: [['open', 0], ['dev', 1], ['done', 2]]
   case_state_view: ['open', 'dev', 'done']
+
   
 development:
   <<: *settings

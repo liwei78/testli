@@ -1,6 +1,4 @@
 TestLi::Application.routes.draw do
-  
-
 
   resources :scenarios do
     resources :cases
@@ -59,7 +57,7 @@ TestLi::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'logics#index'
+  root :to => 'home#index'
 
   # See how all your routes lay out with "rake routes"
 

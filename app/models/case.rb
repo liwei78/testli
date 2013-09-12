@@ -1,5 +1,5 @@
 class Case < ActiveRecord::Base
-  attr_accessible :content, :state, :input, :output
+  attr_accessible :content, :state, :input, :output, :test_class_name, :describe, :context_name, :it_sumary
   has_many :thinkings
   has_many :scenarios, through: :thinkings
   validates :content, presence: true

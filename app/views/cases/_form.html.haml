@@ -1,11 +1,22 @@
 %blockquote
-  = @scenario.content
+  =simple_format @scenario.content
 
 = simple_form_for [@scenario, @case], :html => { :class => 'form-horizontal' } do |f|
-  = f.input :content, as: :text, input_html: {rows: 5, class: 'input-xxlarge'}
-  = f.input :input, as: :text, input_html: {rows: 5, class: 'input-xxlarge'}
-  = f.input :output, as: :text, input_html: {rows: 5, class: 'input-xxlarge'}
-  = f.input :state, collection: SITE_SETTINGS["case_state_select"]
+  %fieldset
+    %legend Basic
+    = f.input :state, collection: SITE_SETTINGS["case_state_select"]
+    = f.input :content, as: :text, input_html: {rows: 5, class: 'input-xxlarge'}
+    = f.input :input, as: :text, input_html: {rows: 5, class: 'input-xxlarge'}
+    = f.input :output, as: :text, input_html: {rows: 5, class: 'input-xxlarge'}
+
+  %fieldset
+    %legend Advanced
+    = f.input :test_class_name, label: 'Class', hint: 'Controller or Model\'s name'
+    = f.input :describe, label: 'describe', hint: 'describe \'...\' do'
+    = f.input :context_name, label: 'context', hint: 'context \'...\' do'
+    = f.input :it_sumary, label: 'it', hint: 'it \'...\' do'
+
+
   .form-actions
     = f.button :submit, :class => 'btn-primary'
     = link_to t('.cancel', :default => t("helpers.links.cancel")), @scenario, :class => 'btn'

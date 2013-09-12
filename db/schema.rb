@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130911150231) do
+ActiveRecord::Schema.define(:version => 20130912171753) do
 
   create_table "cases", :force => true do |t|
     t.text     "content"
@@ -22,6 +22,10 @@ ActiveRecord::Schema.define(:version => 20130911150231) do
     t.text     "output"
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
+    t.string   "context_name"
+    t.string   "test_class_name"
+    t.string   "describe"
+    t.string   "it_sumary"
   end
 
   create_table "cases_scenarios", :force => true do |t|

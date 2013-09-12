@@ -4,6 +4,7 @@ class CreateCases < ActiveRecord::Migration
       t.text :content
       t.integer :position, default: 0
       t.integer :state, default: 0
+      t.integer :scenarios_count, default: 0
       t.text :input
       t.text :output
 

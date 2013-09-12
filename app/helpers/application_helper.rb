@@ -5,7 +5,7 @@ module ApplicationHelper
     when 0
       _str = "<span class='label label-default'>#{testcase.state_view}</span>"
     when 1
-      _str = "<span class='label label-primary'>#{testcase.state_view}</span>"
+      _str = "<span class='label label-info'>#{testcase.state_view}</span>"
     when 2
       _str = "<span class='label label-success'>#{testcase.state_view}</span>"
     end

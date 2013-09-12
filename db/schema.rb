@@ -11,16 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130909063051) do
+ActiveRecord::Schema.define(:version => 20130911150231) do
 
   create_table "cases", :force => true do |t|
     t.text     "content"
-    t.integer  "position",   :default => 0
-    t.integer  "state",      :default => 0
+    t.integer  "position",        :default => 0
+    t.integer  "state",           :default => 0
+    t.integer  "scenarios_count", :default => 0
     t.text     "input"
     t.text     "output"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
   end
 
   create_table "cases_scenarios", :force => true do |t|
@@ -48,8 +49,16 @@ ActiveRecord::Schema.define(:version => 20130909063051) do
     t.integer  "imp_level",             :default => 0
     t.integer  "parent_scenario_id"
     t.integer  "child_scenarios_count", :default => 0
+    t.integer  "cases_count",           :default => 0
     t.datetime "created_at",                           :null => false
     t.datetime "updated_at",                           :null => false
   end
+
+  create_table "thinkings", :force => true do |t|
+    t.integer "case_id"
+    t.integer "scenario_id"
+  end
+
+  add_index "thinkings", ["case_id", "scenario_id"], :name => "index_thinkings_on_case_id_and_scenario_id"
 
 end

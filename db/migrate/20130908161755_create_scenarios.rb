@@ -6,6 +6,7 @@ class CreateScenarios < ActiveRecord::Migration
       t.integer :imp_level, default: 0
       t.integer :parent_scenario_id
       t.integer :child_scenarios_count, default: 0
+      t.integer :cases_count, default: 0
 
       t.timestamps
     end

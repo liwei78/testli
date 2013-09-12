@@ -1,6 +1,7 @@
 class Case < ActiveRecord::Base
   attr_accessible :content, :state, :input, :output
-  has_and_belongs_to_many :scenarios
+  has_many :thinkings
+  has_many :scenarios, through: :thinkings
   validates :content, presence: true
 
   def state_view

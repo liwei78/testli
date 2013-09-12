@@ -27,7 +27,6 @@ class ScenariosController < ApplicationController
   # GET /scenarios/new.json
   def new
     @scenario = Scenario.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @scenario }

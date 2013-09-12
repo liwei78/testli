@@ -1,8 +1,10 @@
 require 'spec_helper'
 
 describe Case do
-  it { should have_and_belong_to_many(:scenarios) }
+  # it { should have_and_belong_to_many(:scenarios) }
   it { should validate_presence_of :content }
+  it { should have_many :thinkings }
+  it { should have_many :scenarios }
 
   describe 'create' do
     it 'with default value' do
@@ -14,8 +16,8 @@ describe Case do
     it 'with scenarios_count +1' do
       scenario = FactoryGirl.create(:scenario)
       test_case = FactoryGirl.create(:case)
-      scenario.cases << test_case
-      scenario.cases.count.should == 1
+      test_case.scenarios << scenario
+      test_case.scenarios_count.should == 1
     end
   end
 end

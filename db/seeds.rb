@@ -38,7 +38,7 @@ checkout_scenario.cases << write_case("列出Country Products", "user.sold_addre
 checkout_scenario.cases << write_case("添加到cart", "Products ids", "cart显示Products name，价格")
 
 
-l4 = Logic.create(title: "Products management", content: '系统管理Products。一、admin管理。二、User可根据国家查看Products List。')
+l4 = Logic.create(title: "Products management", content: '系统管理Products。\n\r一、admin管理。\n\r二、User可根据国家查看Products List。')
   s1 = write_scenario('Products List')
   l4.scenarios << s1
   s1.cases << write_case('Normal List')

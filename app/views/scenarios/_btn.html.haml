@@ -1,0 +1,11 @@
+- if @scenario.parent_scenario.nil?
+  - if @parent_logics.count > 1
+    .btn-group
+      = link_to 'Back Logics <span class="caret"></span>'.html_safe, '#', :class => 'btn dropdown-toggle btn-inverse', 'data-toggle' => "dropdown"
+      %ul.dropdown-menu
+        - @scenario.logics.each do |logic|
+          %li= link_to logic.title, logic
+  - else
+    = link_to t('.back', :default => t("helpers.links.back_to_logic")), logic_path(@parent_logics[0].id), :class => 'btn' unless @parent_logics.empty?
+- else
+  = link_to t('.back', :default => t("helpers.links.back_parent_scenario")), scenario_path(@scenario.parent_scenario), :class => 'btn'

@@ -5,14 +5,8 @@
 .form-actions
   = link_to 'Add Test Case', new_scenario_case_path(@scenario), :class => 'btn btn-primary'
 
-  - if @parent_logics.count > 1
-    .btn-group
-      = link_to 'Back Logics <span class="caret"></span>'.html_safe, '#', :class => 'btn dropdown-toggle btn-inverse', 'data-toggle' => "dropdown"
-      %ul.dropdown-menu
-        - @scenario.logics.each do |logic|
-          %li= link_to logic.title, logic
-  - else
-    = link_to t('.back', :default => t("helpers.links.back_to_logic")), @parent_logics[0], :class => 'btn'
+  = render "btn"
+  
   = link_to t('.edit', :default => t("helpers.links.edit")), edit_scenario_path(@scenario), :class => 'btn'
   = link_to t('.destroy', :default => t("helpers.links.destroy")), scenario_path(@scenario), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger pull-right'
 
@@ -52,9 +46,8 @@
           %td= scenario.id
           %td
             = link_to scenario.content, scenario_path(scenario)
-            - unless scenario.child_scenarios.count.zero?
-              %span.gray.mini
-                more
+            = show_scenario_cases_count(scenario)
+          = show_child_scenarios_count(scenario)
           %td
             = link_to t('.edit', :default => t("helpers.links.edit")), edit_scenario_path(scenario), :class => 'btn btn-mini'
 

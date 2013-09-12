@@ -77,7 +77,7 @@ class CasesController < ApplicationController
     @case.destroy
 
     respond_to do |format|
-      format.html { redirect_to scenario_cases_path(@scenario) }
+      format.html { redirect_to scenario_path(@scenario) }
     end
   end
 end

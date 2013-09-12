@@ -1,12 +1,11 @@
 - model_class = Logic
 .page-header
   %h1
-    Title: 
+    Logic Title: 
     = @logic.title
 
 .form-actions
   = link_to 'Add Scenario', new_scenario_path, :class => 'btn btn-primary'
-  = link_to t('.list_all', :default => t("helpers.links.list_all")), logics_path, :class => 'btn'
   = link_to t('.edit', :default => t("helpers.links.edit")), edit_logic_path(@logic), :class => 'btn'
 
 
@@ -25,12 +24,8 @@
         %td= scenario.id
         %td
           = link_to scenario.content, scenario_path(scenario)
-          - unless scenario.cases_count.zero?
-            %span.label.label-warning
-              = scenario.cases_count
-          - unless scenario.child_scenarios.count.zero?
-            %span.gray.mini
-              more
+          = show_scenario_cases_count(scenario)
+          = show_child_scenarios_count(scenario)
         %td
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_scenario_path(scenario), :class => 'btn btn-mini'
 

@@ -8,6 +8,7 @@
     = f.input :content, as: :text, input_html: {rows: 5, class: 'input-xxlarge'}
     = f.input :input, as: :text, input_html: {rows: 5, class: 'input-xxlarge'}
     = f.input :output, as: :text, input_html: {rows: 5, class: 'input-xxlarge'}
+    = f.association :scenarios, collection: Scenario.all, label_method: :content, as: :check_boxes
 
   %fieldset
     %legend Advanced

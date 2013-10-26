@@ -1,5 +1,13 @@
 TestLi::Application.routes.draw do
 
+  resources :blogs do
+    collection do
+      get :import
+      post :importing
+    end
+  end
+
+
   resources :scenarios do
     resources :cases
   end
